@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PDF Viewer</title>
+<style>
+    body, html {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        overflow: hidden;
+    }
+    
+    #pdf-container {
+        width: 100%;
+        height: 100%;
+        position: relative;
+    }
+    
+    #pdf-viewer {
+        width: 100%;
+        height: 100%;
+        border: none;
+    }
+</style>
+</head>
+<body>
+<div id="pdf-container">
+    <embed id="pdf-viewer" src="YOUR_PDF_URL" type="application/pdf" />
+</div>
+
+<script>
+    window.onload = function() {
+        var urlParams = new URLSearchParams(window.location.search);
+        var pdfUrl = urlParams.get('link');
+        if (pdfUrl) {
+            document.getElementById('pdf-viewer').setAttribute('src', pdfUrl);
+        }
+    };
+</script>
+</body>
+</html>
